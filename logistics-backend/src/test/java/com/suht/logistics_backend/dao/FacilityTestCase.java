@@ -1,7 +1,8 @@
-package com.suht.logistics_backend;
+package com.suht.logistics_backend.dao;
 
 import static org.junit.Assert.assertEquals;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,15 +20,16 @@ public class FacilityTestCase {
 	private static FacilityDAO facilityDAO;
 	private static Facility facility;
 	
-	@BeforeClass
-	public static void init() {
-		context = new AnnotationConfigApplicationContext();
-		context.scan("com.suht.logistics_backend");
-		context.refresh();
-		
-		facilityDAO = (FacilityDAO)context.getBean("facilityDAO");
-		
-	}
+//	@BeforeClass
+//	public static void init() {
+//		context = new AnnotationConfigApplicationContext();
+//		context.scan("com.suht.logistics_backend");
+//		context.refresh();
+//		
+//		facilityDAO = (FacilityDAO)context.getBean("facilityDAO");
+//		
+//		//LocalDateTime.of(2020,1,1, 24, 1);
+//	}
 	
 //	@Test
 //	public void testAddFacility() {
@@ -60,16 +62,16 @@ public class FacilityTestCase {
 //		assertEquals("Successfully deleted facility -> 809 ",true, facilityDAO.delete(facility));
 //	}
 	
-	@Test
-	public void testGetFacilityList() {
-		List<Facility> facilityList = new ArrayList<Facility>();
-		facilityList = facilityDAO.list();
-		for (Facility facility : facilityList) {
-		System.out.println(" FACILITY NAME : " + facility.getName());
-		
-		}
-			
-		
-		assertEquals("Successfully deleted facility -> 809 ",true, facilityDAO.delete(facility));
-	}
+//	@Test
+//	public void testGetFacilityList() {
+//		List<Facility> facilityList = new ArrayList<Facility>();
+//		facilityList = facilityDAO.list();
+//		for (Facility facility : facilityList) {
+//		System.out.println(" FACILITY NAME : " + facility.getName());
+//		
+//		}
+//			
+//		
+//		assertEquals("Successfully deleted facility -> 809 ",true, facilityDAO.delete(facility));
+//	}
 }

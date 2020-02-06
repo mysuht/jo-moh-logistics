@@ -1,4 +1,4 @@
-package com.suht.logistics_backend;
+package com.suht.logistics_backend.dao;
 
 import static org.junit.Assert.assertEquals;
 
@@ -29,14 +29,14 @@ public class FacilityTypeTestCase {
 
 	}
 	
-	@Test
-	public void testFunctions() {
-		//testAddFacilityType();
-		//testGetFacilityType();
-		//testUpdateFacilityType();
-		testDeleteFacilityType();
-		testGetFacilityTypeList();
-	}
+//	@Test
+//	public void testFunctions() {
+//		//testAddFacilityType();
+//		//testGetFacilityType();
+//		//testUpdateFacilityType();
+//		testDeleteFacilityType();
+//		testGetFacilityTypeList();
+//	}
 
 	public void testAddFacilityType() {
 		facilityType = new FacilityType();

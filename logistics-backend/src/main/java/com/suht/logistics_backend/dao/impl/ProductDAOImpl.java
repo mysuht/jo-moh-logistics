@@ -1,4 +1,4 @@
-package com.suht.logistics_backend.daoimpl;
+package com.suht.logistics_backend.dao.impl;
 
 import java.util.List;
 
@@ -8,22 +8,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.suht.logistics_backend.dao.FacilityTypeDAO;
-import com.suht.logistics_backend.dto.FacilityType;
+import com.suht.logistics_backend.dao.ProductDAO;
+import com.suht.logistics_backend.dto.Product;
 
-@Repository("facilityTypeDAO")
+@Repository("ProductDAO")
 @Transactional
-public class FacilityTypeDAOImpl implements FacilityTypeDAO {
+public class ProductDAOImpl implements ProductDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Override	
-	public boolean add(FacilityType facilityType) {
+	public boolean add(Product Product) {
 
 		try {
 			// ADD FACILITY_TYPE TO DB
-			sessionFactory.getCurrentSession().persist(facilityType);
+			sessionFactory.getCurrentSession().persist(Product);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -32,8 +32,8 @@ public class FacilityTypeDAOImpl implements FacilityTypeDAO {
 	}
 
 	@Override
-	public List<FacilityType> list() {		
-		String activeFacilities = "from FacilityType f ";
+	public List<Product> list() {		
+		String activeFacilities = "from Product f ";
 		Query query = sessionFactory.getCurrentSession().createQuery(activeFacilities);
 		return query.getResultList();
 	}
@@ -42,15 +42,15 @@ public class FacilityTypeDAOImpl implements FacilityTypeDAO {
 	 * GETTING SINGLE FACILITY BASED ON ID
 	 */
 	@Override
-	public FacilityType get(int id) {
-		return sessionFactory.getCurrentSession().get(FacilityType.class, Integer.valueOf(id));
+	public Product get(int id) {
+		return sessionFactory.getCurrentSession().get(Product.class, Integer.valueOf(id));
 	}
 
 	@Override
-	public boolean update(FacilityType facilityType) {
+	public boolean update(Product Product) {
 		try {
 			// update FACILITY_TYPE TO DB
-			sessionFactory.getCurrentSession().update(facilityType);
+			sessionFactory.getCurrentSession().update(Product);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,16 +59,17 @@ public class FacilityTypeDAOImpl implements FacilityTypeDAO {
 	}
 
 	@Override
-	public boolean delete(FacilityType facilityType) {
-		facilityType.setType("0");
+	public boolean delete(Product Product) {
+		Product.setActive("0");
 		try {
 			// update FACILITY TO DB
-			sessionFactory.getCurrentSession().update(facilityType);
+			sessionFactory.getCurrentSession().update(Product);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
+
 
 }
