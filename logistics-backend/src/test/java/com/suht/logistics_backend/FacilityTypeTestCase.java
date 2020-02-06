@@ -29,14 +29,14 @@ public class FacilityTypeTestCase {
 
 	}
 	
-	@Test
-	public void testFunctions() {
-		//testAddFacilityType();
-		//testGetFacilityType();
-		//testUpdateFacilityType();
-		testDeleteFacilityType();
-		testGetFacilityTypeList();
-	}
+//	@Test
+//	public void testFunctions() {
+//		//testAddFacilityType();
+//		//testGetFacilityType();
+//		//testUpdateFacilityType();
+//		testDeleteFacilityType();
+//		testGetFacilityTypeList();
+//	}
 
 	public void testAddFacilityType() {
 		facilityType = new FacilityType();
