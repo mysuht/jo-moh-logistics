@@ -11,5 +11,6 @@ public interface FacilityTypeDAO {
 	boolean update(FacilityType facilityType);
 	boolean delete(FacilityType facilityType);
 	List<FacilityType> list();
+	List<FacilityType> getFacilityTypeByFacilityLevel(String facilityLevel);
 	FacilityType get(int id);
 }

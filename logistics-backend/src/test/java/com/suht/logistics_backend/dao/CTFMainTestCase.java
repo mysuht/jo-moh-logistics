@@ -78,7 +78,7 @@ public class CTFMainTestCase {
 		List<CTFMain> CTFMainList = new ArrayList<CTFMain>();
 		CTFMainList = CTFMainDAO.getCTFByDateBetween(LocalDateTime.of(2016, 1, 1, 0,0), LocalDateTime.of(2016, 2, 1, 0,0));
 		for (CTFMain CTFMain : CTFMainList) {
-			System.out.println(" P_DATE : " + CTFMain.getProductDate() + " - FACILITY_ID : " + CTFMain.getFacilityId() );
+			System.out.println(" CTF_MAIN_ID : " + CTFMain.getId()  + " - P_DATE : " + CTFMain.getProductDate() + " - FACILITY_ID : " + CTFMain.getFacilityId() );
 		}
 
 		//assertEquals("Successfully deleted facility Type -> 1 ", true, CTFMainDAO.delete(CTFMain));

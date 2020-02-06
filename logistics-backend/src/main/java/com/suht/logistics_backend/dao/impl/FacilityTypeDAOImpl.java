@@ -1,4 +1,4 @@
-package com.suht.logistics_backend.daoimpl;
+package com.suht.logistics_backend.dao.impl;
 
 import java.util.List;
 
@@ -69,6 +69,14 @@ public class FacilityTypeDAOImpl implements FacilityTypeDAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<FacilityType> getFacilityTypeByFacilityLevel(String facilityLevel) {
+		String activeFacilities = "from FacilityType f where f.type = :type ";
+		Query query = sessionFactory.getCurrentSession().createQuery(activeFacilities);
+		query.setParameter("type", facilityLevel);
+		return query.getResultList();
 	}
 
 }

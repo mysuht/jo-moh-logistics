@@ -1,4 +1,4 @@
-package com.suht.logistics_backend.daoimpl;
+package com.suht.logistics_backend.dao.impl;
 
 import java.time.LocalDateTime;
 import java.util.List;
