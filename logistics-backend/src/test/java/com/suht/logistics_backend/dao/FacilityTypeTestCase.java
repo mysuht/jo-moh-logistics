@@ -1,4 +1,4 @@
-package com.suht.logistics_backend;
+package com.suht.logistics_backend.dao;
 
 import static org.junit.Assert.assertEquals;
 
