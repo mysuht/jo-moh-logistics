@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.suht.logistics_backend.dao.CTFMainDAO;
 import com.suht.logistics_backend.dto.CTFMain;
+import com.suht.logistics_backend.dto.Facility;
 
 @Repository("CTFMainDAO")
 @Transactional
@@ -76,6 +77,43 @@ public class CTFMainDAOImpl implements CTFMainDAO {
 	public List<CTFMain> getCTFByDateBetween(LocalDateTime from, LocalDateTime to) {
 		String activeFacilities = "from CTFMain f where f.productDate between :productDateFrom and :productDateTo ";
 		Query query = sessionFactory.getCurrentSession().createQuery(activeFacilities);
+		query.setParameter("productDateFrom", from);
+		query.setParameter("productDateTo", to);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<CTFMain> getCTFByDateBetweenDescOrder(LocalDateTime from, LocalDateTime to) {
+		String activeFacilities = "from CTFMain f where f.productDate between :productDateFrom and :productDateTo order by id desc ";
+		Query query = sessionFactory.getCurrentSession().createQuery(activeFacilities);
+		query.setParameter("productDateFrom", from);
+		query.setParameter("productDateTo", to);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<CTFMain> getCTFByDateBetweenAscOrder(LocalDateTime from, LocalDateTime to) {
+		String activeFacilities = "from CTFMain f where f.productDate between :productDateFrom and :productDateTo  order by id";
+		Query query = sessionFactory.getCurrentSession().createQuery(activeFacilities);
+		query.setParameter("productDateFrom", from);
+		query.setParameter("productDateTo", to);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<CTFMain> getFacilityCTFByDateBetweenDescOrder(Facility facility, LocalDateTime from, LocalDateTime to) {
+		String activeFacilities = "from CTFMain f where f.productDate between :productDateFrom and :productDateTo order by id desc ";
+		Query query = sessionFactory.getCurrentSession().createQuery(activeFacilities);
+		query.setParameter("productDateFrom", from);
+		query.setParameter("productDateTo", to);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<CTFMain> getFacilityCTFByDateBetweenAscOrder(Facility facility, LocalDateTime from, LocalDateTime to) {
+		String activeFacilities = "from CTFMain f where f.facilityId = :facilityId and f.productDate between :productDateFrom and :productDateTo order by id ";
+		Query query = sessionFactory.getCurrentSession().createQuery(activeFacilities);
+		query.setParameter("facilityId", facility.getId());
 		query.setParameter("productDateFrom", from);
 		query.setParameter("productDateTo", to);
 		return query.getResultList();
