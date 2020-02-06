@@ -24,9 +24,9 @@ public class JsonDataController {
 		return facilityDAO.list();
 	}
 	
-	@RequestMapping("/facilityType/{typeId}/facilities")
+	@RequestMapping("/facilityType/{type}/facilities")
 	@ResponseBody
-	public List<Facility> getFacilityByType(@PathVariable int typeId){
+	public List<Facility> getFacilityByType(@PathVariable int type){
 		return facilityDAO.list();
 	}
 }
