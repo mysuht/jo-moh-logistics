@@ -1,5 +1,7 @@
 package com.suht.logistics_backend.dto;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,13 +14,13 @@ public class Product {
 	@Column(name="PROD_ID")
 	int id;
 	
-	@Column(name="PROD_NAME")
+	@Column(name="PRO_NAME")
 	String name;
 	
 	@Column(name="PROD_CYP", precision=4, scale=2)
-	Double cyp;
+	BigDecimal cyp;
 	
-	@Column(name="PROD_DOSE")
+	@Column(name="PRO_DOSE")
 	String dose;
 	
 	@Column(name="PROD_IS_ACTIVE")
@@ -53,11 +55,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public Double getCyp() {
+	public BigDecimal getCyp() {
 		return cyp;
 	}
 
-	public void setCyp(Double cyp) {
+	public void setCyp(BigDecimal cyp) {
 		this.cyp = cyp;
 	}
 
