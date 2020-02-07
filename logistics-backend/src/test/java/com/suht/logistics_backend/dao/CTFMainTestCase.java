@@ -2,9 +2,8 @@ package com.suht.logistics_backend.dao;
 
 import static org.junit.Assert.assertEquals;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -49,18 +48,18 @@ public class CTFMainTestCase {
 //	}
 
 	public void testGetCTFMain() {
-		CTFMain = CTFMainDAO.get(37);
+		CTFMain = CTFMainDAO.get(37L);
 		assertEquals("Successfully get facility Type ", true, CTFMain.getFacilityId() == 3);
 	}
 
 	public void testUpdateCTFMain() {
-		CTFMain = CTFMainDAO.get(37);
+		CTFMain = CTFMainDAO.get(37L);
 		CTFMain.setFacilityId(3);
 		assertEquals("Successfully added facility ", true, CTFMainDAO.update(CTFMain));
 	}
 
 	public void testDeleteCTFMain() {
-		CTFMain = CTFMainDAO.get(37);
+		CTFMain = CTFMainDAO.get(37L);
 		assertEquals("Successfully deleted facility type -> 37 ", true, CTFMainDAO.delete(CTFMain));
 	}
 
@@ -76,9 +75,9 @@ public class CTFMainTestCase {
 	
 	public void testGetCTFMainByDatesList() {
 		List<CTFMain> CTFMainList = new ArrayList<CTFMain>();
-		CTFMainList = CTFMainDAO.getCTFByDateBetweenDescOrder(LocalDateTime.of(2016, 1, 1, 0,0), LocalDateTime.of(2016, 2, 1, 0,0));
+		CTFMainList = CTFMainDAO.getCTFByDateBetweenDescOrder(LocalDate.of(2014, 1, 1), LocalDate.of(2014, 2, 1));
 		for (CTFMain CTFMain : CTFMainList) {
-			System.out.println(" CTF_MAIN_ID : " + CTFMain.getId()  + " - P_DATE : " + CTFMain.getProductDate() + " - FACILITY_ID : " + CTFMain.getFacilityId() );
+			System.out.println(CTFMain.toString() );
 		}
 
 		//assertEquals("Successfully deleted facility Type -> 1 ", true, CTFMainDAO.delete(CTFMain));

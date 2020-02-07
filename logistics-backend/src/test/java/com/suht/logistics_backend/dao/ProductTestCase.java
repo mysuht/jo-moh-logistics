@@ -37,7 +37,7 @@ public class ProductTestCase {
 		//testUpdateProduct();
 		//testDeleteProduct();
 
-   		//testGetProductList();
+   		testGetProductList();
 	}
 
 //	public void testAddProduct() {
@@ -68,7 +68,7 @@ public class ProductTestCase {
 		List<Product> ProductList = new ArrayList<Product>();
 		ProductList = ProductDAO.list();
 		for (Product Product : ProductList) {
-			System.out.println(" Product NAME : " + Product.getName()+" - CYP: " + Product.getCyp());
+			System.out.println( Product.toString());
 		}
 
 		//assertEquals("Successfully deleted facility Type -> 1 ", true, ProductDAO.delete(Product));

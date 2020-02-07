@@ -1,6 +1,6 @@
 package com.suht.logistics_backend.dao;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -13,11 +13,11 @@ public interface CTFMainDAO {
 	boolean update(CTFMain CTFMain);
 	boolean delete(CTFMain CTFMain);
 	List<CTFMain> list();
-	List<CTFMain> getCTFByDateBetween(LocalDateTime from, LocalDateTime to);
-	List<CTFMain> getCTFByDateBetweenDescOrder(LocalDateTime from, LocalDateTime to);
-	List<CTFMain> getCTFByDateBetweenAscOrder(LocalDateTime from, LocalDateTime to);
+	List<CTFMain> getCTFByDateBetween(LocalDate from, LocalDate to);
+	List<CTFMain> getCTFByDateBetweenDescOrder(LocalDate from, LocalDate to);
+	List<CTFMain> getCTFByDateBetweenAscOrder(LocalDate from, LocalDate to);
 	
-	List<CTFMain> getFacilityCTFByDateBetweenDescOrder(Facility facility, LocalDateTime from, LocalDateTime to);
-	List<CTFMain> getFacilityCTFByDateBetweenAscOrder(Facility facility, LocalDateTime from, LocalDateTime to);
-	CTFMain get(int id);
+	List<CTFMain> getFacilityCTFByDateBetweenDescOrder(Facility facility, LocalDate from, LocalDate to);
+	List<CTFMain> getFacilityCTFByDateBetweenAscOrder(Facility facility, LocalDate from, LocalDate to);
+	CTFMain get(Long id);
 }

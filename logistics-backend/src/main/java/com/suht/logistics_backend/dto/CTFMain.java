@@ -1,6 +1,6 @@
 package com.suht.logistics_backend.dto;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ public class CTFMain {
 	Long id;
 	
 	@Column(name="P_DATE")
-	LocalDateTime productDate;
+	LocalDate productDate;
 	
 	@Column(name="FACILITY_ID")
 	int facilityId;
@@ -28,11 +28,11 @@ public class CTFMain {
 		this.id = id;
 	}
 
-	public LocalDateTime getProductDate() {
+	public LocalDate getProductDate() {
 		return productDate;
 	}
 
-	public void setProductDate(LocalDateTime productDate) {
+	public void setProductDate(LocalDate productDate) {
 		this.productDate = productDate;
 	}
 
@@ -43,6 +43,13 @@ public class CTFMain {
 	public void setFacilityId(int facilityId) {
 		this.facilityId = facilityId;
 	}
+
+	@Override
+	public String toString() {
+		return "CTFMain [id=" + id + ", productDate=" + productDate + ", facilityId=" + facilityId + "]";
+	}
+	
+	
 	
 	
 }

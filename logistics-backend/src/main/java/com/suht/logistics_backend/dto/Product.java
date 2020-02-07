@@ -113,9 +113,12 @@ public class Product {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "Product [id=" + id + ", name=" + name + ", cyp=" + cyp + ", dose=" + dose + ", active=" + active
+				+ ", qtyInShip=" + qtyInShip + ", qtyWhseShip=" + qtyWhseShip + ", qtySDPShip=" + qtySDPShip
+				+ ", prCtrIndex=" + prCtrIndex + "]";
 	}
+
+
 	
 	
 	
