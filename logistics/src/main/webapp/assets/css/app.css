@@ -7,9 +7,12 @@ body {
   padding-top: 56px;
 }
 
+/* url('http://placehold.it/1900x1080') */
+
 .carousel-item {
-  height: 65vh;
-  min-height: 300px;
+  height: 37vh;
+  min-height: 215px;
+/*   300px; */
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
