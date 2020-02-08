@@ -14,6 +14,9 @@
 				<c:if test="${reportId == '2'}"> 
 				<li class="active">CYP - Report</li>
 				</c:if>
+				<c:if test="${reportId == '3'}"> 
+				<li class="active">Supply Status Report</li>
+				</c:if>
 			</ol>
 		</c:if>
 	</div>
