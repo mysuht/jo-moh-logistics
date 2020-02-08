@@ -55,7 +55,7 @@
       -->
 
 				<div class="custom-control custom-radio">
-					<input type="radio" class="custom-control-input"
+					<input type="radio" class="custom-control-input" checked=true
 						id="customControlValidation2" name="radio-stacked" required>
 					<label class="custom-control-label" for="customControlValidation2">
 											All - Facilities	
