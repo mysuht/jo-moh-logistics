@@ -20,16 +20,16 @@ public class FacilityTestCase {
 	private static FacilityDAO facilityDAO;
 	private static Facility facility;
 	
-//	@BeforeClass
-//	public static void init() {
-//		context = new AnnotationConfigApplicationContext();
-//		context.scan("com.suht.logistics_backend");
-//		context.refresh();
-//		
-//		facilityDAO = (FacilityDAO)context.getBean("facilityDAO");
-//		
-//		//LocalDateTime.of(2020,1,1, 24, 1);
-//	}
+	@BeforeClass
+	public static void init() {
+		context = new AnnotationConfigApplicationContext();
+		context.scan("com.suht.logistics_backend");
+		context.refresh();
+		
+		facilityDAO = (FacilityDAO)context.getBean("facilityDAO");
+		
+		//LocalDateTime.of(2020,1,1, 24, 1);
+	}
 	
 //	@Test
 //	public void testAddFacility() {
@@ -70,6 +70,31 @@ public class FacilityTestCase {
 //		System.out.println(" FACILITY NAME : " + facility.getName());
 //		
 //		}
+	
+	
+	
+	
+	
+//	@Test
+//	public void testGetFacilitiesByLevel() {
+//		List<Facility> facilityList = new ArrayList<Facility>();
+//		facilityList = facilityDAO.getFacilitiesByLevel(String.valueOf(2));
+//		for (Facility facility : facilityList) {
+//		System.out.println(facility.toString());
+//		
+//		}
+//	}
+	
+	
+	@Test
+	public void testGetFacilitiesByGroup() {
+		List<Facility> facilityList = new ArrayList<Facility>();
+		facilityList = facilityDAO.getFacilitiesByGroup(6);
+		for (Facility facility : facilityList) {
+		System.out.println(facility.toString());
+		
+		}
+	}
 //			
 //		
 //		assertEquals("Successfully deleted facility -> 809 ",true, facilityDAO.delete(facility));

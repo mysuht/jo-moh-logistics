@@ -41,5 +41,12 @@ public class FacilityType {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return "FacilityType [id=" + id + ", name=" + name + ", type=" + type + "]";
+	}
+	
+	
 		
 }

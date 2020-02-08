@@ -198,6 +198,17 @@ public class Facility {
 	public void setActive(String active) {
 		this.active = active;
 	}
+
+	@Override
+	public String toString() {
+		return "Facility [id=" + id + ", code=" + code + ", name=" + name + ", typeId=" + typeId + ", supplierId="
+				+ supplierId + ", contact=" + contact + ", address1=" + address1 + ", address2=" + address2 + ", city="
+				+ city + ", state=" + state + ", rescode=" + rescode + ", phone=" + phone + ", fax=" + fax
+				+ ", fieldDespense=" + fieldDespense + ", maxMOS=" + maxMOS + ", minMOS=" + minMOS + ", active="
+				+ active + "]";
+	}
+	
+	
 	
 	
 }

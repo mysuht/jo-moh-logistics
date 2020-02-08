@@ -29,14 +29,15 @@ public class FacilityTypeTestCase {
 
 	}
 	
-//	@Test
-//	public void testFunctions() {
-//		//testAddFacilityType();
-//		//testGetFacilityType();
-//		//testUpdateFacilityType();
-//		testDeleteFacilityType();
-//		testGetFacilityTypeList();
-//	}
+	@Test
+	public void testFunctions() {
+		//testAddFacilityType();
+		//testGetFacilityType();
+		//testUpdateFacilityType();
+		//testDeleteFacilityType();
+		//testGetFacilityTypeList();
+		//testGetFacilityTypeByFacilityId();
+	}
 
 	public void testAddFacilityType() {
 		facilityType = new FacilityType();
@@ -49,6 +50,12 @@ public class FacilityTypeTestCase {
 	public void testGetFacilityType() {
 		facilityType = facilityTypeDAO.get(37);
 		assertEquals("Successfully get facility Type ", true, facilityType.getType().equals("x"));
+	}
+	
+	public void testGetFacilityTypeByFacilityId() {
+		facilityType = facilityTypeDAO.getFacilityTypeHierarchy(498);
+		//assertEquals("Successfully get facility Type ", true, facilityType.getType().equals("x"));
+		System.out.println(facilityType.toString());
 	}
 
 	public void testUpdateFacilityType() {

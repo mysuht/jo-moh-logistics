@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.suht.logistics_backend.dao.FacilityTypeDAO;
+import com.suht.logistics_backend.dto.Facility;
 import com.suht.logistics_backend.dto.FacilityType;
 
 @Repository("facilityTypeDAO")
@@ -78,5 +79,17 @@ public class FacilityTypeDAOImpl implements FacilityTypeDAO {
 		query.setParameter("type", facilityLevel);
 		return query.getResultList();
 	}
+
+	@Override
+	public FacilityType getFacilityTypeHierarchy(int facilityId) {
+		String activeFacilities = "select ft from FacilityType ft ";
+		activeFacilities += " inner join Facility f ";
+		activeFacilities += " on ft.id = f.typeId ";
+		activeFacilities += " where f.id = :facilityId";
+		Query query = sessionFactory.getCurrentSession().createQuery(activeFacilities);
+		query.setParameter("facilityId", facilityId);
+		return (FacilityType) query.getSingleResult();
+	}
+	
 
 }

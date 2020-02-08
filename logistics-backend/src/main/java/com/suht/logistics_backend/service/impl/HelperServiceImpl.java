@@ -52,6 +52,10 @@ public class HelperServiceImpl implements HelperService {
 		if(ctfMainList.size() > 0) {
 			minCTFMain = ctfMainList.get(0);
 			if (minCTFMain != null) {
+				FacilityType facilityType = facilityTypeDAO.getFacilityTypeHierarchy(facility.getId());
+				if(facilityType.getType().equals("1")) {
+					
+				}
 				itemList = ctfItemDAO.getProductsByCTFMain(minCTFMain);
 				CTFItem item = (CTFItem) itemList.stream().filter(itm -> itm.getProductId() == product.getId());
 				if (item != null)

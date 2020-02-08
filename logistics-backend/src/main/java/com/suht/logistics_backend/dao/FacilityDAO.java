@@ -10,5 +10,8 @@ public interface FacilityDAO {
 	boolean update(Facility facility);
 	boolean delete(Facility facility);
 	List<Facility> list();
+	public List<Facility> listOfActiveFacilities() ;
+	List<Facility> getFacilitiesByLevel(String level);
+	public List<Facility> getFacilitiesByGroup(int facilityGroupId) ;
 	Facility get(int id);
 }
