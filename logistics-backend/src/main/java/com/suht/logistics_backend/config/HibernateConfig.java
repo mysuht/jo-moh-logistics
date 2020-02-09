@@ -31,8 +31,8 @@ public class HibernateConfig {
 		dataSource.setUrl(DATABASE_URL);
 		dataSource.setUsername(DATABASE_USERNAME);
 		dataSource.setPassword(DATABASE_PASSWORD);
-		dataSource.setInitialSize(100);
-		dataSource.setMaxTotal(400);
+//		dataSource.setInitialSize(100);
+//		dataSource.setMaxTotal(400);
 		return dataSource;
 	}
 
