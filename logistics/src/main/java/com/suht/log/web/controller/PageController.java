@@ -1,46 +1,72 @@
 package com.suht.log.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.suht.log.web.bean.Report;
+import com.suht.logistics_backend.dao.FacilityGroupDAO;
+import com.suht.logistics_backend.dao.FacilityTypeDAO;
+
 @Controller
 public class PageController {
+	@Autowired
+	FacilityGroupDAO facilityGroupDAO;
 	
-	@RequestMapping(value= {"/", "/home", "/index"})
+	@Autowired
+	FacilityTypeDAO facilityTypeAO;
+
+	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
-	ModelAndView mv = new ModelAndView("page");
-	mv.addObject("title", "Home Screen");
-	mv.addObject("userClickHome", true);
-	return mv;
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Home Screen");
+		mv.addObject("userClickHome", true);
+		return mv;
 	}
-	
-	@RequestMapping(value= {"/about"})
+
+	@RequestMapping(value = { "/about" })
 	public ModelAndView about() {
-	ModelAndView mv = new ModelAndView("page");
-	mv.addObject("title", "about Screen");
-	mv.addObject("userClickAbout", true);
-	return mv;
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "about Screen");
+		mv.addObject("userClickAbout", true);
+		return mv;
 	}
-	
-	@RequestMapping(value= {"/{report}/report"})
-	public ModelAndView getNonReportingFacility(@PathVariable(value="report") String reportId) {
-	ModelAndView mv = new ModelAndView("page");
-	mv.addObject("title", "about Screen");
-	mv.addObject("userClickReport", true);
-	mv.addObject("reportId", reportId);
-	
-	if(reportId.equals("1")) {
-	mv.addObject("monthlyReport", true);
-	} else {
-		mv.addObject("periodReport", true);
+
+	@RequestMapping(value = { "/{report}/report" })
+	public ModelAndView getNonReportingFacility(@PathVariable(value = "report") String reportId,
+			@RequestParam(value = "category", required = false) String category) {
+		ModelAndView mv = new ModelAndView("page");
+		
+		Report report = new Report();
+		mv.addObject("report", report);
+		mv.addObject("groupOrTypeLable", "ALL");
+		mv.addObject("title", "about Screen");
+		mv.addObject("userClickReport", true);
+		mv.addObject("reportId", reportId);
+		mv.addObject("category", "0");
+		
+		if (category != null) {
+			if (category.equals("1")) {
+				mv.addObject("groupOrTypeLable", "GROUP");
+				mv.addObject("facilityGroupList", facilityGroupDAO.list());
+			}
+			if (category.equals("2")) {
+				mv.addObject("groupOrTypeLable", "TYPE");
+				mv.addObject("facilityGroupList", facilityTypeAO.list());
+			}
+		}
+
+		if (reportId.equals("1")) {
+			mv.addObject("monthlyReport", true);
+		} else {
+			mv.addObject("periodReport", true);
+		}
+		return mv;
 	}
-	return mv;
-	}
-	
-	
+
 	/*
 	 * @RequestMapping(value= {"/test1"}) public ModelAndView
 	 * test1(@RequestParam(value="greeting", required = false) String greeting) {

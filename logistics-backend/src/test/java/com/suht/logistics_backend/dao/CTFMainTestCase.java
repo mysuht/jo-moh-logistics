@@ -75,7 +75,7 @@ public class CTFMainTestCase {
 	
 	public void testGetCTFMainByDatesList() {
 		List<CTFMain> CTFMainList = new ArrayList<CTFMain>();
-		CTFMainList = CTFMainDAO.getCTFByDateBetweenDescOrder(LocalDate.of(2014, 1, 1), LocalDate.of(2014, 2, 1));
+		CTFMainList = CTFMainDAO.getCTFByDateBetweenDescOrder(LocalDate.of(2016, 1, 1), LocalDate.of(2016, 2, 1));
 		for (CTFMain CTFMain : CTFMainList) {
 			System.out.println(CTFMain.toString() );
 		}

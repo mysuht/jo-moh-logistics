@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="CTF_MAIN")
 public class CTFMain {
@@ -15,6 +17,7 @@ public class CTFMain {
 	Long id;
 	
 	@Column(name="P_DATE")
+	@DateTimeFormat(pattern = "mm/yyyy")
 	LocalDate productDate;
 	
 	@Column(name="FACILITY_ID")

@@ -28,11 +28,18 @@
 
   <!-- Custom styles for this template -->
   <link href="${css}/app.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+  <link href="${css}/bootstrap-datepicker.min.css" rel="stylesheet">
 
 </head>
 
 <body>
-
+      <!-- Bootstrap core JavaScript -->
+  <script src="${js}/jquery.js"></script>
+  <script src="${js}/bootstrap.bundle.min.js"></script>
+  <script src="${js}/bootstrap-datepicker.min.js"></script>
+  
+  
   <!-- Navigation -->
  	<%@include file="./shared/navbar.jsp" %>
 
@@ -60,13 +67,15 @@
  </c:if>	
   <!-- /.container -->
 
+  <!-- /.container -->
+
+  
   <!-- Footer -->
 	<%@include file="./shared/footer.jsp" %>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="${js}/jquery.js"></script>
-  <script src="${js}/bootstrap.bundle.min.js"></script>
 
+
+  
 </body>
 
 </html>
