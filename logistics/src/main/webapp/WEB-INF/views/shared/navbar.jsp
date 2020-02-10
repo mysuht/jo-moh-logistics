@@ -45,7 +45,7 @@
               <a class="dropdown-item" href="${contextRoot}/1/report">Non-Reporting Facilities Report</a>
               <a class="dropdown-item" href="${contextRoot}/2/report">CYP - Report</a>
               <a class="dropdown-item" href="${contextRoot}/3/report">Supply Status Report</a>
-              <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+              <a class="dropdown-item" href="${contextRoot}/downloadPDF">4 Column Portfolio</a>
               <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
             </div>
           </li>
