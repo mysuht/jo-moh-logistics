@@ -7,6 +7,10 @@ body {
   padding-top: 56px;
 }
 
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
 /* url('http://placehold.it/1900x1080') */
 
 .carousel-item {

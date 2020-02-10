@@ -3,8 +3,10 @@ package com.suht.log.web.bean;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Report {
-	
+	@NotEmpty
 	String category;
 	List<String> facilityTypeOrGroupList;
 	Date dateFrom;

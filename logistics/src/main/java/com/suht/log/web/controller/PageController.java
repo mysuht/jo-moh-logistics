@@ -1,9 +1,14 @@
 package com.suht.log.web.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,12 +46,21 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		
 		Report report = new Report();
+		report.setCategory("0");
 		mv.addObject("report", report);
 		mv.addObject("groupOrTypeLable", "ALL");
 		mv.addObject("title", "about Screen");
 		mv.addObject("userClickReport", true);
 		mv.addObject("reportId", reportId);
-		mv.addObject("category", "0");
+		
+		Map<String, String> categories = new HashMap<String, String>();
+		categories.put("0", "ALL FACILITIES");
+		categories.put("1", " GROUP FACILITIES ");
+		categories.put("2", " TYPE FACILITIES ");
+		//categories.keySet().
+		mv.addObject("categories", categories);
+		//if(category == null)
+		//mv.addObject("selectedCategory", "0");
 		
 		if (category != null) {
 			if (category.equals("1")) {
@@ -65,6 +79,16 @@ public class PageController {
 			mv.addObject("periodReport", true);
 		}
 		return mv;
+	}
+	
+//	@ModelAttribute("categories")
+//	public void categoryMap() {
+//		
+//	}
+	
+	@RequestMapping(value = { "/{report}/report" }, method=RequestMethod.POST)
+	public void x() {
+		System.out.println("SUHT XXXXXXXXXXXXXXXXXXXXXXXX");
 	}
 
 	/*
