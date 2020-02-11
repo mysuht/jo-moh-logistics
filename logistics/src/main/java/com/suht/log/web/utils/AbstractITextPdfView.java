@@ -59,7 +59,7 @@ public abstract class AbstractITextPdfView extends AbstractView {
  
     protected Document newDocument() {
         //return new Document(PageSize.A4, 36, 36, 90, 36);
-    	Document document = new Document(PageSize.A4.rotate(), 36, 36, 90, 36);
+    	Document document = new Document(PageSize.A4, 36, 36, 90, 36);
 //    	document.left(100f);
 //    	document.top(150f);
     	return document;
